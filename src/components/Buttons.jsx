@@ -2,10 +2,16 @@ import React from 'react';
 
 import './Button.css';
 
-export default function Buttons({ label }) {
-  return (
-    <>
-      <button className="button">{label}</button>
-    </>
-  );
-}
+export default (props) => (
+  <button
+    onClick={(e) => props.click(props.label)}
+    className={`
+        button
+        ${props.operation && 'operation'}
+        ${props.double && 'double'}
+        ${props.triple && 'triple'}
+      `}
+  >
+    {props.label}
+  </button>
+);
